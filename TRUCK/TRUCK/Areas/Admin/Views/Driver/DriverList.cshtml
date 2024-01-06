@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Driver>
+@{
+    ViewData["Title"] = "DriverList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+<div class="row">
+    <div class="col-12">
+        <div class="intro">
+
+            <h1 style="color:orangered">OPERATÖR YÖNETİM SAYFASI</h1><br>
+            <p class="mx-auto" style="color:orangered">
+                <a style="color:black" class="btn btn-brand" asp-area="Admin" asp-controller="Driver" asp-action="Add">Operatör Ekle</a>
+            </p>
+            <a class="navbar-brand" asp-controller="AdminMain" asp-action="Index" style="font-size:100px">TRUCK<span class="dot">.</span></a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<div class="mt-5 col-auto">
+    @if (Model.Count() == 0)
+    {
+        <div class="alert alert-danger" role="alert">
+            Boşta operatörümüz bulunmamaktadır.
+        </div>
+    }
+    else
+    {
+
+        <div class="table-container">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Operatör</th>
+                        <th scope="col">Deneyim</th>
+                        <th scope="col">İşlem</th>
+                        <th scope="col">İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.ID</th>
+                            <td>@item.DriverName<text> </text> @item.DriverSurname</td>
+                            <td>@item.Deneyim</td>
+                            <td><a style="color:black" class="btn btn-brand" asp-area="Admin" asp-controller="Driver" asp-action="Delete" asp-route-id="@item.ID">Sil</a></td>
+                            <td><a style="color:black" class="btn btn-brand" asp-area="Admin" asp-controller="Driver" asp-action="Update" asp-route-id="@item.ID">Güncelle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    }
+</div>
+

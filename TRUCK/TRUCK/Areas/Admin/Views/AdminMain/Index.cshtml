@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="intro">
+
+                    <h1 style="color:orangered">ADMIN PANELI</h1>
+                    <p class="mx-auto" style="color:orangered">
+                        HOŞGELDİNİZ
+                    </p>
+                    <a class="navbar-brand" asp-controller="AdminMain" asp-action="Index" style="font-size:100px">TRUCK<span class="dot">.</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1><a asp-controller="WorkMachine" asp-action="WorkMachineList" style="color:orangered">İş aracı işlemleri</a></h1>
+            </div>
+            <div class="col-sm">
+                <h1><a asp-controller="Driver" asp-action="DriverList" style="color:orangered">Operatör işlemleri</a></h1>
+            </div>
+            <div class="col-sm">
+                <h1><a asp-controller="Rent" asp-action="RentList" style="color:orangered">Kiralık Listesi</a></h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+

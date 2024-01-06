@@ -1,0 +1,130 @@
+﻿
+@model IEnumerable<WorkMachine>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br>
+<section class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12" >
+                <div class="intro">
+                    
+                    <h1 style="color:orangered">İŞ MAKİNE LİSTESİ</h1>
+                    <p class="mx-auto" style="color:orangered">
+                        EN YENİ TEKNOLOJİ
+                    </p>
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index" style="font-size:100px">TRUCK<span class="dot">.</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="projects-slider" class="owl-theme owl-carousel">
+        <div class="project">
+            <div class="overlay"></div>
+            <img src="~/img/forklift.jpg" alt="">
+            <div class="content">
+                <h2>Forklift</h2>
+                <h6>
+                    Forklift ağır yükleri kaldırmak, taşımak ve yerleştirmek için kullanılan bir endüstriyel araçtır. Depo, fabrika veya liman gibi yerlerde malzemelerin etkin bir şekilde hareket ettirilmesini sağlar. Forkliftler, çatallı kollarıyla yükleri kaldırarak dar alanlarda bile kullanılabilirler.
+                </h6>
+            </div>
+        </div>
+        <div class="project">
+            <div class="overlay"></div>
+            <img src="~/img/manitou.jpg" alt="">
+            <div class="content">
+                <h2>Manitou</h2>
+                <h6>Manitou, ağır yüklerin kaldırılması, taşınması ve yerleştirilmesi için kullanılan bir makine veya ekipmandır. Bu ekipman genellikle inşaat, madencilik veya endüstriyel alanlarda kullanılır ve yüksek taşıma kapasitesiyle bilinir. Manitou'nun çeşitli modelleri bulunur ve teleskopik boom, forklift veya yükleyici gibi farklı işlevlere sahip olabilir.</h6>
+            </div>
+        </div>
+        <div class="project">
+            <div class="overlay"></div>
+            <img src="~/img/kepce.jpg" alt="">
+            <div class="content">
+                <h2>Kepçe</h2>
+                <h6>
+                    Kepçe, toprak, kum, çakıl gibi malzemelerin kazılması, taşınması ve yüklenmesi için kullanılan bir yapı makineleridir. İnşaat, madencilik ve yol yapımı gibi sektörlerde sıklıkla kullanılan kepçeler, genellikle büyük kova şeklindeki ön kısmıyla malzemeyi kaldırır ve taşır. Kepçeler, kazı işlemlerinde verimliliği artırırken aynı zamanda zamandan ve emekten tasarruf sağlar.
+                </h6>
+            </div>
+        </div>
+        <div class="project">
+            <div class="overlay"></div>
+            <img src="~/img/vinc.jpg" alt="">
+            <div class="content">
+                <h2>Vinç</h2>
+                <h6>
+                    Vinç, ağır yüklerin kaldırılması, taşınması ve yerleştirilmesi için kullanılan bir kaldırma ekipmanıdır. İnşaat, liman, tersane ve yüksek yapı projeleri gibi alanlarda yaygın olarak kullanılır. Vinçler, yüksek taşıma kapasitesi ve çeşitli kaldırma mekanizmalarıyla güvenli ve etkili bir şekilde yükleri hareket ettirmeyi sağlar.
+                </h6>
+            </div>
+        </div>
+        <div class="project">
+            <div class="overlay"></div>
+            <img src="~/img/projectd.jpg">
+            <div class="content">
+                <h2>Yangın Uçağı</h2>
+                <h6>Yangın uçağı, orman yangınları veya diğer büyük yangın olaylarında yangın söndürme operasyonlarında kullanılan bir hava aracıdır. Genellikle su veya yangın söndürme kimyasallarını taşır ve yangın bölgelerine bırakarak yangının kontrol altına alınmasına yardımcı olur. Yangın uçakları, hızlı müdahale ve etkili yangın söndürme kapasitesiyle yangınla mücadele ekiplerine önemli bir destek sağlar.</h6>
+            </div>
+        </div>
+        <div class="project">
+            <div class="overlay"></div>
+            <img src="~/img/silindir.jpg" alt="">
+            <div class="content">
+                <h2>Silindir</h2>
+                <h6>
+                    Silindir, inşaat ve yol yapımı gibi sektörlerde kullanılan bir iş makinesidir.Silindir, zeminin sıkıştırılmasını sağlar ve yapıların dayanıklılığını arttırır.Silindir, toprak, çakıl veya asfalt gibi malzemelerin düzgün bir şekilde yerleştirilmesine yardımcı olur.
+                </h6>
+            </div>
+        </div>
+        <div class="project">
+            <div class="overlay"></div>
+            <img src="~/img/dozer.jpg" alt="">
+            <div class="content">
+                <h2>Dozer</h2>
+                <h6>
+
+                    Dozer, inşaat sektöründe kullanılan bir iş makinesidir.Dozer, toprak, kaya veya diğer malzemeleri kazmak, taşımak veya düzlemek için kullanılır.Dozer, genellikle yol yapımı, inşaat projeleri ve arazi düzenlemesi gibi işlerde etkin bir şekilde kullanılır.
+                </h6>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="mt-5 col-auto">
+@if(Model.Count()==0){
+    <div class="alert alert-danger" role="alert">
+        Boşta aracımız bulunmamaktadır.
+    </div>
+}
+else{
+
+        <div class="table-container">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Araç</th>
+                        <th scope="col">Günlük Fiyat</th>
+                        <th scope="col">İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.ID</th>
+                            <td>@item.WorkMachineName</td>
+                            <td>@item.DailyPrice</td>
+                            <td><a style="color:black" class="btn btn-brand" asp-controller="Rent" asp-action="Index">Kirala</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+}
+</div>
+<script src="~/js/jquery.min.js"></script>
+<script src="~/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/owl.carousel.min.js"></script>
+<script src="~/js/app.js"></script>

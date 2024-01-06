@@ -1,0 +1,122 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TRUCK</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css" />
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <style>
+        .table-container {
+            display: flex;
+            justify-content: center;
+            padding-left: 300px;
+            padding-right: 300px;
+
+
+        }
+    </style>
+
+</head>
+
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+
+    <header>
+
+    <!-- TOP NAV -->
+    <div class="top-nav" id="home">
+        <div class="container-fluid">
+            <div class="row justify-content-between">
+                <div class="col-auto">
+                    <p> <i class='bx bxs-envelope'></i> renttruck@truck.com</p>
+                    <p> <i class='bx bxs-phone-call'></i> +90 507 060 0793</p>
+                </div>
+                <div class="col-auto social-icons">
+                    <a href="https://www.facebook.com"><i class='bx bxl-facebook'></i></a>
+                    <a href="https://www.twitter.com"><i class='bx bxl-twitter'></i></a>
+                    <a href="https://www.instagram.com"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://www.pinterest.com"><i class='bx bxl-pinterest'></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="Admin" asp-controller="AdminMain" asp-action="Index">TRUCK<span class="dot">.</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                            <a class="nav-link" style="color:orangered" asp-area="Admin" asp-controller="AdminMain" asp-action="Index">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="WorkMachine" asp-action="WorkMachineList">Araçlarımız</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Driver" asp-action="DriverList">Operetörlerimiz</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Rent" asp-action="RentList">Satışlar</a>
+                    </li>
+                  
+                </ul>
+                    <a asp-controller="Login"  asp-action="Login" class="btn btn-brand ms-lg-3">Çıkış Yap</a>
+            </div>
+        </div>
+    </nav>
+
+    </header>
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+
+    <footer>
+        <div class="footer-top text-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h4 class="navbar-brand">TRUCK<span class="dot">.</span></h4>
+                        <p>
+                            Siz isteyin biz yapalım.
+                        </p>
+                        <div class="col-auto social-icons">
+                            <a href="https://facebook.com"><i class='bx bxl-facebook'></i></a>
+                            <a href="https://twitter.com"><i class='bx bxl-twitter'></i></a>
+                            <a href="https://instagram.com"><i class='bx bxl-instagram'></i></a>
+                            <a href="https://pinterest.com"><i class='bx bxl-pinterest'></i></a>
+                        </div>
+                        <div class="col-auto conditions-section">
+                            <a href="#">privacy</a>
+                            <a href="#">terms</a>
+                            <a href="#">disclaimer</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p class="mb-0">Copyright vicpra 2022. All rights Reserved</p> Distributed By <a hrefs="https://truck.com">TRUCK</a>
+        </div>
+    </footer>
+
+      <script src="~/js/jquery.min.js"></script>
+      <script src="~/js/bootstrap.bundle.min.js"></script>
+      <script src="~/js/owl.carousel.min.js"></script>
+      <script src="~/js/app.js"></script>
+</body>
+
+
+
+</html>

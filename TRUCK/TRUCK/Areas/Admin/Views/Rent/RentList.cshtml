@@ -1,0 +1,72 @@
+﻿@using TRUCK.Models.ViewModels
+@model IEnumerable<Sales>
+@{
+    ViewData["Title"] = "RentList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="intro">
+
+                <h1 style="color:orangered">YAPILAN SATIŞLAR</h1><br>
+                
+                <a class="navbar-brand" asp-controller="AdminMain" asp-action="Index" style="font-size:100px">TRUCK<span class="dot">.</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+
+
+
+
+<div class="mt-5 col-auto">
+    @if (Model.Count() == 0)
+    {
+        <div class="alert alert-danger" role="alert">
+            Kirada araç yok, sinek avlıyoruz :(
+        </div>
+    }
+    else
+    {
+        <div class="table-container">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Kaç Gün Kiralanacak</th>
+                        <th scope="col">Kiralanan İş Makinası Adı</th>
+                        <th scope="col">Operatör Adı Soyadı</th>
+                        <th scope="col">Müşterinin Adı Soyadı</th>
+                        <th scope="col">Müşterinin Telefon Numarası</th>
+                        <th scope="col">Kiralama Tarihi</th>
+                        <th scope="col">Tahsil Edilecek Tutar</th>
+                        <th scope="col">İşlem</th>
+
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.ID</th>
+                            <td>@item.Day</td>
+                            <td>@item.WorkMachine.WorkMachineName</td>
+                            <td>@item.Driver.DriverName<text> </text>@item.Driver.DriverSurname</td>
+                            <td>@item.ClientName<text> </text>@item.ClientSurname</td>
+                            <td>@item.ClientMobileNo</td>
+                            <td>@item.RentDate</td>
+                            <td>@item.TotalPrice</td>
+                            <td><a style="color:black" class="btn btn-brand" asp-route-id="@item.ID" asp-area="admin" asp-controller="Rent" asp-action="Delete">Kiralama tamamlandı, ödeme alındı.</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

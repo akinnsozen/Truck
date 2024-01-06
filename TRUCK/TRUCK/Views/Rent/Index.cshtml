@@ -1,0 +1,94 @@
+﻿@using TRUCK.Models.ViewModels
+
+@model RentAddViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (ViewBag.TelError!=null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.TelError
+    </div>
+}
+@if (ViewBag.Error!=null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+@if (ViewBag.AddMessage != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.AddMessage
+    </div>
+}
+
+
+<div class="container">
+<div class="rounded" style="float: right;">
+    <a class="navbar-brand" asp-controller="Home" asp-action="Index" style="font-size:100px">TRUCK<span class="dot">.</span></a>
+    <br>
+    <img src="~/img/asd.png" style="height:350px; width:600px;">
+</div>
+</div>
+<div class="container">
+<form asp-controller="Rent" asp-action="Index" method="post">
+
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Adınız</label>
+            <input asp-for="ClientName" type="text" class="form-control" placeholder="Adınız">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Soyadınız</label>
+            <input asp-for="ClientSurname" type="text" class="form-control"  placeholder="Soyadınız">
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Telefon no</label>
+        <input asp-for="ClientMobileNo" type="tel" class="form-control" placeholder="+90" style="width:650px" >
+    </div>
+    <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputState">İş Makinesi Seçin</label>
+                <select asp-for="WorkMachineID" id="inputState" class="form-control">
+                    
+                    @foreach (var item in Model.workMachines)
+                    {
+                        <option value="@item.ID">@item.WorkMachineName  </option>
+                    }
+                   
+                </select>
+            </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Operatör Seçin</label>
+            <select asp-for="DriverID" id="inputState" class="form-control">
+                
+                   @foreach (var item in Model.drivers)
+                    {
+                        <option value="@item.ID">@item.DriverName<text> </text> @item.DriverSurname <text> // Deneyim= </text>@item.Deneyim</option>
+                    }
+              
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Kaç gün kiralama</label>
+            <input asp-for="Day" type="text" class="form-control" id="inputZip" placeholder="Gün">
+        </div>
+    </div><br>
+    <div class="form-group">
+        <div class="form-check">
+            <input  class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+                Evet, TRUCK ile kiralamaya hazırım
+            </label>
+        </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Gönder</button>
+        
+</form>
+    
+</div>
+

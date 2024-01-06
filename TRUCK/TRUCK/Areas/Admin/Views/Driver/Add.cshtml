@@ -1,0 +1,58 @@
+﻿@model Driver
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="intro">
+
+                <h1 style="color:orangered">OPERATÖR EKLEME SAYFASI</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@if (ViewBag.AddError != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.AddError<text> tüm alanları doldurunuz</text>
+        
+    </div>
+}
+
+<div class="container">
+    <div class="rounded" style="float: right;">
+        <a class="navbar-brand" asp-controller="AdminMain" asp-action="Index" style="font-size:100px">TRUCK<span class="dot">.</span></a>
+    </div>
+</div>
+<div class="container">
+    <form asp-area="Admin" asp-controller="Driver" asp-action="Add" method="post">
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Operatör Adı</label>
+                <input type="text" class="form-control" asp-for=DriverName placeholder="Ad">
+                <span class="text-danger" asp-validation-for="DriverName"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Operatör Soyadı</label>
+                <input type="text" class="form-control" asp-for=DriverSurname placeholder="Soyad">
+                <span class="text-danger" asp-validation-for="DriverSurname"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Deneyim</label>
+                <input type="text" class="form-control" asp-for=Deneyim placeholder="Deneyim">
+                <span class="text-danger" asp-validation-for="Deneyim"></span>
+            </div><br>
+            <input type="submit" value="Kaydet" class="btn btn-brand" />
+            <a asp-area="Admin" asp-controller="Driver" asp-action="DriverList" class="btn btn-brand">Vazgeç</a>
+        </div>
+    </form>
+</div>
+
